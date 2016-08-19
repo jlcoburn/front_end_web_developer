@@ -1,0 +1,20 @@
+You've learned a lot about web development so far. I want you to take a moment to write down your thoughts about web development here. Answer the following questions:
+  * What new skills have you learned?
+  I've learned how to using HTML hypertext markup language to struct a web page and to achieve different display
+  format(fonts, margin, line). I have also learned how to be a developer by implementing some very good methods
+  I've learned in udacity courses so far.
+
+  * What has been easy?
+  I think the syntax of html is not hard, there is no too much complicated logic in it.
+
+  * What has been difficult?
+  I think design a user-friendly structure will be difficult, especially when it comes to responsive design.
+
+  * How have you used the problem solving strategies from the first project to overcome challenges so far?
+  Using Google is always my best strategy to solve most of the problems. Another very important strategy is
+  keep a good mindset, when I have a clear mindset, then my brain will sort out a solution for me to progress
+  the challenge. I think coding is like painting, you can create your best work when you have a clear mind,
+  a good mood and a good energy. I don't think it's a good environment when people under heavy pressure.
+  The greatest art pieces are all come from the artist when they are really engaging the creation. When you have a
+  clear goal, you shouldn't be worried the outcome, because you have already print out the outcome in your mind.
+  Brendan Eich developed JS in 10 days is a perfect example about clear mindset leads to success.
