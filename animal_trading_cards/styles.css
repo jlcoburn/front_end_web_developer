@@ -1,46 +1,40 @@
-.card{
+.card {
   border: 3px solid #d3d3d3;
   border-radius: 15px;
   width: 300px;
   padding: 10px;
   padding-top: 5px;
-  box-shadow: 10px 10px 5px #888888;
-  background-color: #C5E3BF;
+  box-shadow: 10px 10px 5px #888;
+  background-color: #c5e3bf;
 }
 
-#animal_name{
-  font-size: 25px;
-  margin: 5px;
-}
-
-img{
-  min-width: 300px;
+.panda-pic {
+  width: 300px;
   height:200px;
   display: block;
 }
 
-#interesting_fact{
+.interesting_fact {
   font-style: italic;
 }
 
-.item{
+.item {
   display: block;
 }
 
-.list{
+.list {
   padding-left: 0;
   margin-left: 0;
 }
 
-.label{
+.label {
   font-weight: bold;
 }
 
-.description{
+.description {
   width: 280px;
   border: 2px solid #d3d3d3;
-  padding: 10px;
-  padding-top: 5px;
+  padding: 5px 10px 10px;
   margin-top: 15px;
-  background-color: #FFF;
+  background-color: #fff;
 }
