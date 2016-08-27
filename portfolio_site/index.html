@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css'>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <title>Portfolio</title>
+</head>
+<body class="container">
+  <header class="header-box row">
+    <div class="col-md-6 logo-col">
+      <picture>
+          <source srcset="img/headshot-cut-1600_large.jpg" media="(min-width: 820px)" />
+          <source srcset="img/headshot-cut-800_medium.jpg" media="(min-width: 640px)" />
+          <source srcset="img/headshot-cut-400_small.jpg" />
+          <img src="headshot-cut-400_small.jpg" alt="logo" class="logo" />
+      </picture>
+    </div>
+    <div class="name-position col-md-6">
+      <h1 class="super-title text-right name">HANYU JIANG</h1>
+      <h3 class="text-right job-title">WEB DEVELOPER</h3>
+    </div>
+  </header>
+  <hr />
+  <h2 class="text-center greeting">WELCOME TO MY PORTFOLIO PAGE &#9786;</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <picture>
+          <source srcset="img/siam-ocean-center-oil-1600_large.jpg" media="(min-width: 820px)" />
+          <source srcset="img/siam-ocean-center-oil-800_medium.jpg" media="(min-width: 640px)" />
+          <source srcset="img/siam-ocean-center-oil-400_small.jpg" />
+          <img src="img/siam-ocean-center-oil-400_small.jpg" alt="feature-photo" class="feature-photo">
+      </picture>
+    </div>
+  </div>
+  <section>
+    <h2>FEATURED WORK</h2>
+    <div class="work-details row text-center">
+      <figure class="work col-md-4">
+        <picture>
+            <source srcset="img/animal-card-1600_large.png" media="(min-width: 820px)" />
+            <source srcset="img/animal-card-800_medium.png" media="(min-width: 640px)" />
+            <source srcset="img/animal-card-400_small.png" />
+            <img src="img/animal-card-400_small.png" class="work-img" alt="animal card project" data-toggle="modal" data-target="#project1">
+        </picture>
+        <figcaption class="title">Animal Card Project</figcaption>
+      </figure>
+
+      <figure class="work col-md-4">
+        <picture>
+            <source srcset="img/online-resume-1600_large.png" media="(min-width: 820px)" />
+            <source srcset="img/online-resume-800_medium.png" media="(min-width: 640px)" />
+            <source srcset="img/online-resume-400_small.png" />
+            <img src="img/online-resume-400_small.png" class="work-img" alt="online resume" data-toggle="modal" data-target="#project2" >
+        </picture>
+        <figcaption class="title">Online Resume</figcaption>
+      </figure>
+
+      <figure class="work col-md-4">
+        <picture>
+            <source srcset="img/blocimg1-1600_large.png" media="(min-width: 820px)" />
+            <source srcset="img/blocimg1-800_medium.png" media="(min-width: 640px)" />
+            <source srcset="img/blocimg1-400_small.png" />
+            <img src="img/blocimg1.png" class="work-img" alt="reddit replica" data-toggle="modal" data-target="#project3">
+        </picture>
+        <figcaption class="title">Bloccit</figcaption>
+      </figure>
+
+    </div>
+  </section>
+  <footer class="row">
+    <div class="icon">
+      <a href="http://twitter.com/minimalmonkey" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>
+    </div>
+    <div class="icon">
+      <a href="http://facebook.com" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>
+    </div>
+    <div class="icon">
+      <a href="http://plus.google.com" class="icon-button google-plus"><i class="icon-google-plus"></i><span></span></a>
+    </div>
+  </footer>
+  <!-- Modal -->
+  <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="modal1">Animal Card Project</h4>
+              </div>
+              <div class="modal-body">
+                  Use CSS3 techniques to convert a design prototype into a functional webpage.
+              </div>
+              <a href="https://github.com/ptchiangchloe/front_end_web_developer/tree/master/animal_trading_cards" class="link">animal_trading_cards link</a>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="project2" tabindex="-1" role="dialog" aria-labelledby="modal2" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="modal2">Online Resume</h4>
+              </div>
+              <div class="modal-body">
+                  Use javascript to construct an online resume with pre-written HTML and CSS.
+              </div>
+              <a href="http://pauljiang.xyz/" class="link">online resume link</a>
+
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="project3" tabindex="-1" role="dialog" aria-labelledby="modal3" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="modal3">Bloccit</h4>
+              </div>
+              <div class="modal-body">
+                  Use Ruby om Rail to build a replica version of reddit. Techniques are including system dependences,
+                  configuration, database creation, testing and services.
+              </div>
+              <a href="https://github.com/ptchiangchloe/bloccit" class="link">bloccit link</a>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
