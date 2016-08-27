@@ -99,7 +99,7 @@ html {
 
 /* Circle */
 
-.icon-button span {
+.circle {
   display            : block;
   position           : absolute;
   top                : 50%;
@@ -121,15 +121,15 @@ html {
   border-radius : 3.6rem;
 }
 
-.twitter span {
+.twitter-circle {
   background-color : #4099ff;
 }
 
-.facebook span {
+.facebook-circle {
   background-color : #3b5998;
 }
 
-.google-plus span {
+.google-plus-circle {
   background-color : #db5a3c;
 }
 
