@@ -1,0 +1,170 @@
+* {
+  box-sizing : border-box;
+}
+
+.title,
+h1,
+h2,
+h3 {
+  font-family : helvetica,
+                sans-serif;
+}
+
+/* header */
+
+.header-box {
+  display : -webkit-flex;
+  display : -ms-flex;
+  display : flex;
+}
+
+.logo {
+  width         : 25%;
+  height        : 25%;
+  margin-top    : 20px;
+  border-radius : 125px;
+}
+
+.feature-photo {
+  width : 100%;
+}
+
+.super-title {
+  font-size : 56px;
+}
+
+hr {
+  border-width : 3px;
+}
+
+/* content */
+
+.work-img {
+  width  : 300px;
+  height : 200px;
+  border : 1px solid grey;
+}
+
+.work-details {
+  display   : -webkit-flex;
+  display   : -ms-flex;
+  display   : flex;
+  padding   : 20px 0;
+  flex-wrap : wrap;
+}
+
+.title {
+  font-size : 20px;
+}
+
+.link {
+  margin-left     : 15px;
+  text-decoration : underline;
+  font-size       : 15px;
+}
+
+/* footer */
+
+footer {
+  padding          : 30px;
+  background-color : aliceblue;
+  text-align       : center;
+}
+
+html {
+  font-size : 18px;
+}
+
+.icon {
+  display : inline-flex;
+}
+
+.icon-button {
+  display             : inline-block;
+  position            : relative;
+  width               : 3.6rem;
+  height              : 3.6rem;
+  margin              : 0 10px;
+  border-radius       : 3.6rem;
+  background-color    : white;
+  text-align          : center;
+  font-size           : 2.0rem;
+  line-height         : 3.6rem;
+  -moz-user-select    : none;
+  -ms-user-select     : none;
+  -webkit-user-select : none;
+  user-select         : none;
+  cursor              : pointer;
+}
+
+/* Circle */
+
+.icon-button span {
+  display            : block;
+  position           : absolute;
+  top                : 50%;
+  left               : 50%;
+  width              : 0;
+  height             : 0;
+  margin             : 0;
+  border-radius      : 0;
+  -moz-transition    : all 0.3s;
+  -o-transition      : all 0.3s;
+  -webkit-transition : all 0.3s;
+  transition         : all 0.3s;
+}
+
+.icon-button:hover span {
+  width         : 3.6rem;
+  height        : 3.6rem;
+  margin        : -1.8rem;
+  border-radius : 3.6rem;
+}
+
+.twitter span {
+  background-color : #4099ff;
+}
+
+.facebook span {
+  background-color : #3b5998;
+}
+
+.google-plus span {
+  background-color : #db5a3c;
+}
+
+/* Icons */
+
+.icon-button i {
+  z-index            : 10;
+  position           : absolute;
+  top                : 0;
+  left               : 0;
+  width              : 3.6rem;
+  height             : 3.6rem;
+  color              : white;
+  background         : none;
+  line-height        : 3.6rem;
+  -moz-transition    : all 0.3s;
+  -o-transition      : all 0.3s;
+  -webkit-transition : all 0.3s;
+  transition         : all 0.3s;
+}
+
+.icon-button .icon-twitter {
+  color : #4099ff;
+}
+
+.icon-button .icon-facebook {
+  color : #3b5998;
+}
+
+.icon-button .icon-google-plus {
+  color : #db5a3c;
+}
+
+.icon-button:hover .icon-facebook,
+.icon-button:hover .icon-google-plus,
+.icon-button:hover .icon-twitter {
+  color : white;
+}

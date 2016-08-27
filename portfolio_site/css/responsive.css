@@ -1,0 +1,60 @@
+/* responsive design for Nexus 5 */
+
+@media screen
+       and (max-width : 411px) {
+  .logo-col {
+    display : none;
+  }
+
+  .name {
+    text-align : center;
+    font-size  : 40px;
+  }
+
+  .job-title {
+    text-align : center;
+    font-size  : 20px;
+  }
+
+  .greeting,
+  .job-title,
+  .name {
+    font-weight : bold;
+  }
+
+  .name-position {
+    display : block;
+    width   : 100%;
+  }
+
+  .greeting {
+    font-size : 20px;
+  }
+
+  .work {
+    margin : 0 auto;
+  }
+}
+
+/* responsive design for ipad */
+
+@media screen
+       and (min-width : 412px)
+       and (max-width : 768px) {
+  .name {
+    font-size : 40px;
+  }
+
+  .job-title {
+    font-size : 26px;
+  }
+
+  .name-position {
+    width : 100%;
+  }
+
+  .work {
+    padding-bottom : 10px;
+    padding-left   : 30px;
+  }
+}
