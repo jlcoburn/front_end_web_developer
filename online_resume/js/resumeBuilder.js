@@ -8,12 +8,12 @@ var bio = {
         "github": "https://github.com/ptchiangchloe",
         "location": "San Francisco, CA"
     },
-    "welcomeMessage": "Hi guys, welcome to my resume page, my name is Hanyu Jiang and I'm from China. I have a brief career in business and sales, which built my strong work ethic and the ability to work well with others. \
-  I took my first JavaScript class in my graduate school and I fell in love with the magic of coding since then. \
-  I start learning coding systematically and intensively by self-taught and the help from the online community a year ago. I've been repeatedly learning and practicing front-end web \
+    "welcomeMessage": "Hi guys, welcome to my resume page, my name is Hanyu Jiang and I'm from China. I have a brief career in business and sales, which built my strong work ethic and the ability to work well with others.\
+  I took my first JavaScript class in my graduate school and I fell in love with the magic of coding since then.\
+  I start learning coding systematically and intensively by self-taught and the help from the online community a year ago. I've been repeatedly learning and practicing front-end web\
   development and CS principle over the past year. I've been with joined a few notable coding schools so that I know I'm ready to step into \
   the professional world. I’m hard-working, eager to learn and I enjoy creating application, challenging myself with new knowledge. Now I'm ready to be a full time web developer.\
-  In my spare time, I like movie and design, I also took advantage from my design background that I think software programming is definitely a design process because it involves creativity and user experience. \
+  In my spare time, I like movie and design, I also took advantage from my design background that I think software programming is definitely a design process because it involves creativity and user experience.\
   If you are interested in knowing more about me, please don’t hesitate to reach me by email.",
     "biopic": "images/headshot.jpg",
     "skills": ["HTML", "CSS", "Responsive Web Design", "JavaScript","Node.js","jQuery", "Ruby on Rails", "Software Testing", "Git", "Github", "Rspec"],
