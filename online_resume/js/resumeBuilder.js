@@ -20,12 +20,12 @@ var bio = {
 
 // I create the display function by deploying jQuery to fill in all the values I just declared and to be present in html page
     "display": function() {
-        var a = HTMLheaderName.replace("%data%", this["name"]),
-            b = HTMLheaderRole.replace("%data%", bio.role),
-            c = HTMLbioPic.replace("%data%", bio.biopic),
-            d = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+        var a = HTMLheaderName.replace("%data%", this.name),
+            b = HTMLheaderRole.replace("%data%", this.role),
+            c = HTMLbioPic.replace("%data%", this.biopic),
+            d = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
         $("#header").prepend(b).prepend(a).append(c, d).append(HTMLskillsStart);
-        for (var i = 0; i < bio.skills.length; i++) {
+        for (var i = 0; i < this.skills.length; i++) {
             $("#skills").append(HTMLskills.replace("%data%", bio['skills'][i] + " , "));
         }
         for (var key in this.contacts) {
@@ -61,12 +61,12 @@ work = {
         "display": function() {
             for (var i = 0; i < work.jobs.length; i++) {
                 $("#workExperience").append(HTMLworkStart);
-                var formarttedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer).replace('#', work.jobs[i]['url']);
-                var formarttedTitle = HTMLworkTitle.replace("%data%", work.jobs[i]['title']);
+                var formarttedEmployer = HTMLworkEmployer.replace("%data%", this.jobs[i].employer).replace('#', this.jobs[i].url);
+                var formarttedTitle = HTMLworkTitle.replace("%data%", this.jobs[i].title);
                 var formattedEmployerTitle = formarttedEmployer + formarttedTitle;
-                var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[i]['location']);
-                var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i]['dates']);
-                var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i]['description']);
+                var formattedLocation = HTMLworkLocation.replace("%data%", this.jobs[i]['location']);
+                var formattedDates = HTMLworkDates.replace("%data%", this.jobs[i]['dates']);
+                var formattedDescription = HTMLworkDescription.replace("%data%", this.jobs[i]['description']);
                 $(".work-entry").eq(i).append(formattedEmployerTitle)
                     .append(formattedLocation)
                     .append(formattedDates)
@@ -92,19 +92,19 @@ projects = {
 }
 
 projects.display = function() {
-    for (x in projects.projects) {
+    for (var x in this.projects) {
         $("#projects").append(HTMLprojectStart); // to create a new project entry
-        var formarttedTitle = HTMLprojectTitle.replace("%data%", projects.projects[x].title);
+        var formarttedTitle = HTMLprojectTitle.replace("%data%", this.projects[x].title);
         $(".project-entry:last").append(formarttedTitle);
-        var formarttedDates = HTMLprojectDates.replace("%data%", projects.projects[x].dates);
+        var formarttedDates = HTMLprojectDates.replace("%data%", this.projects[x].dates);
         $(".project-entry:last").append(formarttedDates);
-        var formarttedDescription = HTMLprojectDescription.replace("%data%", projects.projects[x].description);
+        var formarttedDescription = HTMLprojectDescription.replace("%data%", this.projects[x].description);
         $(".project-entry:last").append(formarttedDescription);
-        if (projects.projects[x].images.length > 0) {
-            for (image in projects.projects[x].images) {
-                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[x].images[image]);
-                $(".project-entry:last").append(formattedImage);
-            }
+        if (this.projects[x].images.length > 0) {
+             this.projects[x].images.forEach(function(val){
+               var formattedImage = HTMLprojectImage.replace("%data%", val);
+               $(".project-entry:last").append(formattedImage);
+             })
         }
     }
 }
@@ -154,7 +154,7 @@ education = {
         "url": "www.udacity.com"
     }],
     "display": function() {
-        for (var i = 0; i < education.schools.length; i++) {
+        for (var i = 0; i < this.schools.length; i++) {
             $('#education').append(HTMLschoolStart);
         };
         $('.education-entry').each(function(i) {
