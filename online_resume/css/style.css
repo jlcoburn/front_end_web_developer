@@ -14,6 +14,10 @@ h6 {
   font-family: "helvetica", sans-serif;
 }
 
+div {
+  padding-bottom: 3px;
+}
+
 #role {
   color: aliceblue;
 }
@@ -158,6 +162,13 @@ ul {
   padding: 10px;
   width: 200px;
   display: none;
+}
+
+.project-img {
+  border:solid 1px lightgrey;
+  height: 130px;
+  margin-right: 5px;
+  box-shadow: 10px 10px 5px grey;
 }
 
 img {

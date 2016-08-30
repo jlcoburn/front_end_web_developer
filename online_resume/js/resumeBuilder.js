@@ -6,7 +6,7 @@ var bio = {
         "Phone": "415-404-2120",
         "Email": "ptchiang12@gmail.com",
         "Github": "https://github.com/ptchiangchloe",
-        "Location": "San Francisco, CA"
+        "Location": "San Francisco"
     },
     "welcomeMessage": "Hi guys, welcome to my resume page, my name is Hanyu Jiang and I'm from China. I have a brief career in business and sales, which built my strong work ethic and the ability to work well with others. \
   I took my first JavaScript class in my graduate school and I fell in love with the magic of coding since then. \
@@ -17,6 +17,7 @@ var bio = {
   If you are interested in knowing more about me, please don’t hesitate to reach me by email.",
     "biopic": "images/headshot.jpg",
     "skills": ["HTML", "CSS", "Responsive Web Design", "JavaScript","Node.js","jQuery", "Ruby on Rails", "Software Testing", "Git", "Github", "Rspec"],
+
 // I create the display function by deploying jQuery to fill in all the values I just declared and to be present in html page
     "display": function() {
         var a = HTMLheaderName.replace("%data%", this["name"]),
@@ -33,6 +34,7 @@ var bio = {
         };
     }
 };
+
 work = {
         "jobs": [{
             "employer": "Real Estate Ebroker",
@@ -73,21 +75,21 @@ work = {
         }
     },
 
-    projects = {
-        "projects": [{
-            "title": "Bloccit",
-            "dates": "2016",
-            "description": "I built a social communication like reddit in ruby on rails, It's my \
-      I faced a lot of challengings, meanwhile, I learnded a lot by all means.",
-            "images": ["images/blocimg1.png","images/blocimg2.png","images/blocimg3.png","images/blocimg4.png"]
-        }, {
-            "title": "My first website",
-            "dates": "2015",
-            "description": "I built website by HTML and CSS, It's my \
-      I faced a lot of challengings, meanwhile, I learnded a lot by all means.",
-            "images": ["images/mfwimg1.png","images/mfwimg2.png","images/mfwimg3.png","images/mfwimg4.png"]
-        }]
-    }
+projects = {
+    "projects": [{
+        "title": "Bloccit",
+        "dates": "2016",
+        "description": "I built a social communication like reddit in ruby on rails, It's my \
+  I faced a lot of challengings, meanwhile, I learnded a lot by all means.",
+        "images": ["images/blocimg1.png","images/blocimg2.png","images/blocimg3.png","images/blocimg4.png"]
+    }, {
+        "title": "My first website",
+        "dates": "2015",
+        "description": "I built website by HTML and CSS, It's my \
+  I faced a lot of challengings, meanwhile, I learnded a lot by all means.",
+        "images": ["images/mfwimg1.png","images/mfwimg2.png","images/mfwimg3.png","images/mfwimg4.png"]
+    }]
+}
 
 projects.display = function() {
     for (x in projects.projects) {
@@ -114,7 +116,7 @@ education = {
         "degree": "GED",
         "major": ["General study"],
         "dates": "2007",
-        "url": "http://www.siva.edu.cn/"
+        "url": "http://hlzx.szftedu.cn/InternationalEn/index.aspx"
     }, {
         "name": "Fudan University",
         "location": "Shanghai, China",
