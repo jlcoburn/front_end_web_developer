@@ -140,9 +140,9 @@ a {
   background-color : #484848;
 }
 
-#workExperience,
-#projects {
-  padding-bottom: 20px;
+#projects,
+#workExperience {
+  padding-bottom : 20px;
 }
 
 .flex-box {
