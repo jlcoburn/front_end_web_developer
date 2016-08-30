@@ -3,10 +3,10 @@ var bio = {
     "name": "Hanyu Jiang",
     "role": "Web developer",
     "contacts": {
-        "Phone": "415-404-2120",
-        "Email": "ptchiang12@gmail.com",
-        "Github": "https://github.com/ptchiangchloe",
-        "Location": "San Francisco, CA"
+        "mobile": "415-404-2120",
+        "email": "ptchiang12@gmail.com",
+        "github": "https://github.com/ptchiangchloe",
+        "location": "San Francisco, CA"
     },
     "welcomeMessage": "Hi guys, welcome to my resume page, my name is Hanyu Jiang and I'm from China. I have a brief career in business and sales, which built my strong work ethic and the ability to work well with others. \
   I took my first JavaScript class in my graduate school and I fell in love with the magic of coding since then. \
