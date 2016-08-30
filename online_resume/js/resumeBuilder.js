@@ -1,7 +1,7 @@
 // I use js create bio, work, project and education objects including all the properties this project requries.
 var bio = {
     "name": "Hanyu Jiang",
-    "role": "Web developer",
+    "role": "Web Developer",
     "contacts": {
         "mobile": "415-404-2120",
         "email": "ptchiang12@gmail.com",
@@ -24,13 +24,15 @@ var bio = {
             b = HTMLheaderRole.replace("%data%", this.role),
             c = HTMLbioPic.replace("%data%", this.biopic),
             d = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
-        $("#header").prepend(b).prepend(a).append(c, d).append(HTMLskillsStart);
+        $("#header").prepend(b, a).append(c, d, HTMLskillsStart);
         for (var i = 0; i < this.skills.length; i++) {
             $("#skills").append(HTMLskills.replace("%data%", bio['skills'][i] + " , "));
         }
         for (var key in this.contacts) {
-            $("#topContacts").append(HTMLcontactGeneric.replace("%contact%", key).replace('%data%', this["contacts"][key])),
-                $("#footerContacts").append(HTMLcontactGeneric.replace("%contact%", key).replace('%data%', this["contacts"][key]))
+          if (this.contacts.hasOwnProperty(key)) {
+            $("#topContacts").append(HTMLcontactGeneric.replace("%contact%", key).replace('%data%', this["contacts"][key]));
+            $("#footerContacts").append(HTMLcontactGeneric.replace("%contact%", key).replace('%data%', this["contacts"][key]))
+          }
         };
     }
 };
@@ -67,10 +69,7 @@ work = {
                 var formattedLocation = HTMLworkLocation.replace("%data%", this.jobs[i]['location']);
                 var formattedDates = HTMLworkDates.replace("%data%", this.jobs[i]['dates']);
                 var formattedDescription = HTMLworkDescription.replace("%data%", this.jobs[i]['description']);
-                $(".work-entry").eq(i).append(formattedEmployerTitle)
-                    .append(formattedLocation)
-                    .append(formattedDates)
-                    .append(formattedDescription);
+                $(".work-entry").eq(i).append(formattedEmployerTitle, formattedLocation,formattedDates, formattedDescription );
             }
         }
     },
@@ -92,16 +91,14 @@ projects = {
 }
 
 projects.display = function() {
-    for (var x in this.projects) {
+    for (var i = 0; i < this.projects.length; i++) {
+        var formarttedTitle = HTMLprojectTitle.replace("%data%", this.projects[i].title);
+        var formarttedDates = HTMLprojectDates.replace("%data%", this.projects[i].dates);
+        var formarttedDescription = HTMLprojectDescription.replace("%data%", this.projects[i].description);
         $("#projects").append(HTMLprojectStart); // to create a new project entry
-        var formarttedTitle = HTMLprojectTitle.replace("%data%", this.projects[x].title);
-        $(".project-entry:last").append(formarttedTitle);
-        var formarttedDates = HTMLprojectDates.replace("%data%", this.projects[x].dates);
-        $(".project-entry:last").append(formarttedDates);
-        var formarttedDescription = HTMLprojectDescription.replace("%data%", this.projects[x].description);
-        $(".project-entry:last").append(formarttedDescription);
-        if (this.projects[x].images.length > 0) {
-             this.projects[x].images.forEach(function(val){
+        $(".project-entry:last").append(formarttedTitle, formarttedDates, formarttedDescription);
+        if (this.projects[i].images.length > 0) {
+             this.projects[i].images.forEach(function(val){
                var formattedImage = HTMLprojectImage.replace("%data%", val);
                $(".project-entry:last").append(formattedImage);
              })
@@ -184,10 +181,10 @@ education.display();
 
 function locationizer(work_obj) {
     var locationArray = []
-    for (job in work_obj.jobs) {
+    work_obj.jobs.forEach(function(job){
         var newLocation = work_obj.jobs[job].location;
         locationArray.push(newLocation)
-    }
+    })
     return locationArray;
 }
 
