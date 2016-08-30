@@ -19,7 +19,8 @@ div {
   padding-bottom : 3px;
 }
 
-#role {
+#role,
+.contact-data {
   color : aliceblue;
 }
 
@@ -137,6 +138,11 @@ a {
 
 #header {
   background-color : #484848;
+}
+
+#workExperience,
+#projects {
+  padding-bottom: 20px;
 }
 
 .flex-box {
