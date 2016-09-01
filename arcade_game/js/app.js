@@ -40,7 +40,9 @@ Enemy.prototype.checkCollisions = function(){
      rect1.y < rect2.y + rect2.height &&
      rect1.height + rect1.y > rect2.y) {
        player.reset();
+       player.score -= 1;
   }
+  document.getElementById('score').innerHTML = "SCORE: " + this.score;
 }
 
 // Now write your own player class
@@ -68,6 +70,7 @@ Player.prototype.update = function() {
     this.reset();
     console.log("You win!");
   }
+  document.getElementById('score').innerHTML = "SCORE: " + this.score;
 };
 
 Player.prototype.render = function() {
