@@ -22,13 +22,26 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
       this.x = 0;
     };
-    checkCollisions(this);
+    this.checkCollisions();
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+Enemy.prototype.checkCollisions = function(){
+  // calculate the bounding box objects' value
+  var rect1 = {x: player.x, y: player.y, width: 50, height: 50}
+  var rect2 = {x: this.x, y: this.y, width: 50, height: 50}
+
+  if (rect1.x < rect2.x + rect2.width &&
+     rect1.x + rect1.width > rect2.x &&
+     rect1.y < rect2.y + rect2.height &&
+     rect1.height + rect1.y > rect2.y) {
+       player.reset();
+  }
+}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -52,7 +65,7 @@ Player.prototype.update = function() {
   };
   if(this.y <= -3) {
     this.score += 1;
-    reset();
+    this.reset();
     console.log("You win!");
   }
 };
@@ -82,25 +95,10 @@ Player.prototype.handleInput = function(userInput) {
     };
 };
 
-
-function checkCollisions(enemy) {
-  // calculate the bounding box objects' value
-  var rect1 = {x: player.x, y: player.y, width: 50, height: 50}
-  var rect2 = {x: enemy.x, y: enemy.y, width: 50, height: 50}
-
-  if (rect1.x < rect2.x + rect2.width &&
-     rect1.x + rect1.width > rect2.x &&
-     rect1.y < rect2.y + rect2.height &&
-     rect1.height + rect1.y > rect2.y) {
-       reset();
-  }
-}
-
-function reset(){
+Player.prototype.reset = function(){
   player.x = 200;
   player.y = 400;
 }
-
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
