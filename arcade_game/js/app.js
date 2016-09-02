@@ -1,3 +1,5 @@
+'use strict';
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -19,9 +21,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + this.speed * dt
-    if (this.x >= 505) {
-      this.x = 0;
+    this.x = this.x + this.speed * dt;
+    const rightBorder = 500;
+    if (this.x >= rightBorder) {
+      this.x = 0
     };
     this.checkCollisions();
 };
@@ -33,8 +36,8 @@ Enemy.prototype.render = function() {
 
 Enemy.prototype.checkCollisions = function(){
   // calculate the bounding box objects' value
-  var rect1 = {x: player.x, y: player.y, width: 50, height: 50}
-  var rect2 = {x: this.x, y: this.y, width: 50, height: 50}
+  var rect1 = {x: player.x, y: player.y, width: 50, height: 50};
+  var rect2 = {x: this.x, y: this.y, width: 50, height: 50};
 
   if (rect1.x < rect2.x + rect2.width &&
      rect1.x + rect1.width > rect2.x &&
@@ -42,7 +45,7 @@ Enemy.prototype.checkCollisions = function(){
      rect1.height + rect1.y > rect2.y) {
        player.reset();
        player.score -= 1;
-  }
+  };
   document.getElementById('score').innerHTML = "SCORE: " + this.score;
 }
 
@@ -56,21 +59,23 @@ var Player = function() {
   this.x = 200;
   this.y = 400;
   this.score = 0;
-}
+};
 
 Player.prototype.update = function() {
+  const topBorder = -3;
+  const bottomBorder = 440;
+  const leftBorder = 0;
+  const rightBorder = 450;
 
-  if (this.x >= 450 || this.x <= 0) {
-    this.reset();
-  };
-  if (this.y >= 430 ) {
-    this.reset();
-  };
-  if(this.y <= -3) {
+  if(this.y <= topBorder) {
     this.score += 1;
     this.reset();
     console.log("You win!");
-  }
+  };
+  if (this.x >= rightBorder || this.x <= leftBorder || this.y >= bottomBorder) {
+    this.reset()
+  };
+
   document.getElementById('score').innerHTML = "SCORE: " + this.score;
 };
 
@@ -96,13 +101,13 @@ Player.prototype.handleInput = function(userInput) {
     case 'down':
         this.y = this.y + 20;
         break;
-    };
+    }
 };
 
 Player.prototype.reset = function(){
   this.x = 200;
   this.y = 400;
-}
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
