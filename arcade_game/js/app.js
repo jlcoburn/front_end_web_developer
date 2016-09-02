@@ -1,7 +1,17 @@
 'use strict';
+var Entity = function() {
+  this.sprite = null;
+  this.x = 0;
+  this.y = 0;
+};
+
+Entity.prototype.render = function(render) {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
+};
 
 // Enemies our player must avoid
 var Enemy = function() {
+    Entity.call(this);
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     var speeds = [50, 70, 100, 120, 150];
@@ -30,9 +40,7 @@ Enemy.prototype.update = function(dt) {
 };
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+Enemy.prototype.render = Entity.prototype.render;
 
 Enemy.prototype.checkCollisions = function(){
   // calculate the bounding box objects' value
@@ -54,7 +62,8 @@ Enemy.prototype.checkCollisions = function(){
 // a handleInput() method.
 
 var Player = function() {
-  this.player = 'images/char-boy.png';
+  Entity.call(this);
+  this.sprite = 'images/char-boy.png';
   // coordinates on the canvas
   this.x = 200;
   this.y = 400;
@@ -79,9 +88,7 @@ Player.prototype.update = function() {
   document.getElementById('score').innerHTML = "SCORE: " + this.score;
 };
 
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.player), this.x, this.y);
-};
+Player.prototype.render = Entity.prototype.render;
 
 Player.prototype.handleInput = function(userInput) {
 //   The handleInput method, which should receive user input, allowedKeys (the key which was pressed) and move the player according to that input. In particular:
