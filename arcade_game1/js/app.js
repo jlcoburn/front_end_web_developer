@@ -47,7 +47,7 @@ Enemy.prototype.checkCollisions = function(){
      rect1.x + rect1.width > rect2.x &&
      rect1.y < rect2.y + rect2.height &&
      rect1.height + rect1.y > rect2.y) {
-       player.reset();
+       player.resetPos();
        player.life -= 1;
   }
 }
@@ -79,12 +79,12 @@ Player.prototype.update = function() {
   };
   if(this.y <= -3) {
     this.score += 1;
-    this.reset();
+    this.resetPos();
     this.life -= 1;
   }
   document.getElementById('score').innerHTML = "SCORE: " + this.score;
   if (this.life == 0){
-    player.reset();
+    player.resetPos();
     document.getElementById('life').innerHTML = "SORRY, YOUR GAME IS OVER!";
   }else{
     document.getElementById('life').innerHTML = "PLAY LIFE: " + this.life;
@@ -117,14 +117,21 @@ Player.prototype.handleInput = function(userInput) {
     };
 };
 
-Player.prototype.reset = function(){
+Player.prototype.resetPos = function(){
   this.x = 200;
   this.y = 400;
 }
 
+Player.prototype.resetGame = function(){
+  this.x = 200;
+  this.y = 400;
+  this.score = 0;
+  this.life = 5;
+}
+
 var gemImages = ['images/Gem-Orange.png', 'images/Gem-Blue.png', 'images/Gem-Green.png'];
 var Gem = function() {
-  this.gemPosX = [50, 150, 250, 350, 450];
+  this.gemPosX = [50, 150, 250, 350, 400];
   this.gemImg = gemImages[Math.floor(Math.random() * 3)];
   this.x = this.gemPosX[Math.floor(Math.random() * 5)];
   this.y = posY[Math.floor(Math.random() * 3)];
@@ -132,7 +139,7 @@ var Gem = function() {
 
 Gem.prototype.update = function(){
   this.checkCollisions();
-}$
+};
 
 Gem.prototype.render = function() {
   ctx.drawImage(Resources.get(this.gemImg), this.x, this.y);
