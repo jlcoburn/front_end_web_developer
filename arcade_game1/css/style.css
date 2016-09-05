@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.selectPlayerText {
+  font-weight: bold;
+}
+
+.char-name {
+  display: block;
+}
+
+img{
+  width: 80%;
+  height: 80%;
+}
