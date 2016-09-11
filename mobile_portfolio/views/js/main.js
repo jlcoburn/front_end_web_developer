@@ -422,42 +422,31 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
-    var oldSize = oldWidth / windowWidth;
-
 
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
       switch(size) {
         case "1":
-          return 0.25;
+          newWidth = 25;
+          break;
         case "2":
-          return 0.3333;
+          newWidth = 33.33;
+          break;
         case "3":
-          return 0.5;
+          newWidth = 50;
+          break;
         default:
           console.log("bug in sizeSwitcher");
       }
-    }
 
-    var newSize = sizeSwitcher(size);
-    var dx = (newSize - oldSize) * windowWidth;
+    var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
 
-    return dx;
+    for (var i = 0; i < randomPizzaContainer.length; i++) {
+      randomPizzaContainer[i].style.width = newWidth + "%"
+    };
   }
 
-  // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }
-  }
-
-  changePizzaSizes(size);
+  sizeSwitcher (size);
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
@@ -503,24 +492,23 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var numberOfColumns = screen.width / 73,
-      numberOfRows = screen.height / 110,
-      numOfpizza = numberOfRows * numberOfColumns,
-      phaseHolder = document.body.scrollTop / 1250,
-      itemsLength = numOfpizza,
+  var phaseHolder = document.body.scrollTop / 1250,
+      // Calculate the phase component outside the loop can significant reduce layouts.
+      itemsLength = items.length,
+      // Accesse the length property outside the loop, and makes the loop run faster.
       pizzaArray = new Array();
-  // use getElementByClass is more specific than querySelectorAll since we are looking for elem.className = 'mover';
+      // Create a array to divide the one loop into two loops that can significant reduce layouts.
+
   for (var i = 0; i < itemsLength; i++) {
-    // I need to reduce the calculating time here
     var phase = Math.sin((phaseHolder) + (i % 5));
     pizzaArray.push(phase);
   }
 
   for (var i = 0; i < itemsLength; i++) {
     items[i].style.left = items[i].basicLeft + 100 * pizzaArray[i] + 'px';
-    // calculating the left side margin
+    // Calculate the left side margin.
   }
-  //backface-visibility: hidden;
+
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
@@ -539,7 +527,11 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  // Create specific number of pizza images on the background in order to reducing the layouts
+  var numberOfColumns = screen.width / 73,
+      numberOfRows = screen.height / 110,
+      numOfPizza = numberOfRows * numberOfColumns;
+  for (var i = 0; i < numOfPizza; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -549,6 +541,9 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  items = document.getElementsByClassName('mover');
+  var items_list = document.getElementsByClassName('mover');
+  // Use getElementByClass is more specific than querySelectorAll since we are looking for elem.className = 'mover';
+  var items = Array.prototype.slice.call(items_list);
+  // Covert nodeList into Array data type.
   updatePositions();
 });
