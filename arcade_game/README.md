@@ -1,13 +1,15 @@
 ## Frontend-Nanodegree-Arcade-Game
-Arcade game is a project for my front end nano degree in  Udacity. I mainly used object-oriented javascript to create the functions for the project.
+Welcome to the classic arcade game! Arcade game is a project for my front end nano degree in Udacity. I mainly used object-oriented javascript to create the functions for the project.
 
 If you are interested in knowing more details and background about this project, Please visit [Udacity](https://www.udacity.com/).
 
 ### Instructions
 - You can open and play the game in most of web browsers
 - Use mouse to manipulate the player's movement.
-- You need to move across the road and avoid collide with bugs.
-- Once you successfully cross the road, you will get one score.
+- First, press the "start" button and choose your favorite character as the player.
+- You need to move to the road to get the gem in order to scoring.
+- You need to avoid collide with bugs or step into water otherwise you will lose one life.
+- You only have 5 life chances in total, game will be over after you use out them, good luck!
 
 ### License
 MIT License
