@@ -406,13 +406,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -488,25 +488,16 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 // I need to optimize this part
+
+// Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var phaseHolder = document.body.scrollTop / 1250,
-      // Calculate the phase component outside the loop can significant reduce layouts.
-      itemsLength = items.length,
-      // Accesse the length property outside the loop, and makes the loop run faster.
-      pizzaArray = new Array();
-      // Create a array to divide the one loop into two loops that can significant reduce layouts.
-
-  for (var i = 0; i < itemsLength; i++) {
-    var phase = Math.sin((phaseHolder) + (i % 5));
-    pizzaArray.push(phase);
-  }
-
-  for (var i = 0; i < itemsLength; i++) {
-    items[i].style.left = items[i].basicLeft + 100 * pizzaArray[i] + 'px';
-    // Calculate the left side margin.
+  var items = document.getElementsByClassName('mover'),
+      phaseHolder = document.body.scrollTop / 1250;
+  for (var i = 0; i < items.length; i++) {
+    items[i].style.left = items[i].basicLeft + 100 * Math.sin(phaseHolder + (i % 5)) + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -519,7 +510,6 @@ function updatePositions() {
   }
 }
 
-var items;
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
@@ -527,11 +517,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  // Create specific number of pizza images on the background in order to reducing the layouts
-  var numberOfColumns = screen.width / 73,
-      numberOfRows = screen.height / 110,
-      numOfPizza = numberOfRows * numberOfColumns;
-  for (var i = 0; i < numOfPizza; i++) {
+  for (var i = 0; i < 50; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -541,9 +527,5 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  var items_list = document.getElementsByClassName('mover');
-  // Use getElementByClass is more specific than querySelectorAll since we are looking for elem.className = 'mover';
-  var items = Array.prototype.slice.call(items_list);
-  // Covert nodeList into Array data type.
   updatePositions();
 });
