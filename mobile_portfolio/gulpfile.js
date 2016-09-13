@@ -1,14 +1,10 @@
-var gulp = require('gulp');
-var critical = require('critical');
+'use strict'
 
-gulp.task('critical', ['build'], function (cb) {
-    critical.generate({
-        inline: true,
-        base: 'dist/',
-        src: 'index.html',
-        dest: 'dist/index-critical.html',
-        minify: true,
-        width: 320,
-        height: 480
-    });
-});
+var gulp = require('gulp'),
+    gulpInlineCss = require('gulp-inline-css')
+
+gulp.task('default', function () {
+    return gulp.src([ '**/*.html', '!node_modules/**/*' ])
+        .pipe(gulpInlineCss())
+        .pipe(gulp.dest('build'))
+})

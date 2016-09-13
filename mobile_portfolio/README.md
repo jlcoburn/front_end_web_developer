@@ -57,7 +57,7 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 ### Outlines of optimizations in index.html.
 * Reduced the CSS links in index.html to reducing downloading time when rendering the page.
 * Resized the images that are too large resolution which is not necessary.
-* Used Gulp to efficiently minify documentations. 
+* Used Gulp to efficiently streamline documentations by using gulp-inline-css task.
 
 
 ### Outlines of optimizations in views/js/main.js for pizza.html.
