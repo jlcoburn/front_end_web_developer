@@ -441,7 +441,7 @@ var resizePizzas = function(size) {
 
     var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
 
-    for (var i = 0; i < randomPizzaContainer.length; i++) {
+    for (var i = 0, len = randomPizzaContainer.length; i < len; i++) {
       randomPizzaContainer[i].style.width = newWidth + "%"
     };
   }
@@ -458,8 +458,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -496,8 +496,14 @@ function updatePositions() {
 
   var items = document.getElementsByClassName('mover'),
       phaseHolder = document.body.scrollTop / 1250;
-  for (var i = 0; i < items.length; i++) {
-    items[i].style.left = items[i].basicLeft + 100 * Math.sin(phaseHolder + (i % 5)) + 'px';
+  // create a phaseHolder variable can reduce significant time in the loop
+  var phases = [];
+  for (var i = 0; i < 5; i++) {
+    phases.push(100 * Math.sin(phaseHolder + i % 5));
+  }
+  // use transform css can only change the paint level, avoid recalc layouts and styles
+  for (var i = 0, len = items.length; i < len; i++) {
+    items[i].style.transform = 'translateX(' +  phases[i % 5]  + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -517,15 +523,17 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 50; i++) {
+  var movingPizzas1 = document.getElementById("movingPizzas1")
+  // move 'document' process from loop can save a lot of loading time 
+  for (var i = 0; i < 48; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas1.appendChild(elem);
   }
   updatePositions();
 });
