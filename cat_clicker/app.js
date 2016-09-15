@@ -1,4 +1,4 @@
-$(function() {
+
     var $button = $('.button');
     var $body = $('body');
 
@@ -58,14 +58,12 @@ $(function() {
           octopus.addCount();
           // Once find the right cat data then insert into DOM
             $button.click(function() {
-                var $id = $input.id;
-                var $kitty = octopus.getDate($id);
-                var $imgInput = $('<div><p>' + $kitty.name + '</p><br><img src=' + $kitty.imgUrl + '></div>');
+                var kitty = octopus.getData($button.id);
+                var $imgInput = $('<div><p>' + kitty.name + '</p><br><img src=' + kitty.imgUrl + '></div>');
                 $imgInput.appendTo($("body"));
             })
         }
 
     };
 
-    view.init(); // start the process 
-}());
+    view.init(); // start the process
